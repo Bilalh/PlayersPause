@@ -1,5 +1,5 @@
 #!/usr/bin/env osascript
-# Allow controls videos in safari on various sites, and other players such as iTunes.
+# Play/Pause/Next/Previous html5 videos in Safari 
 on run argv
 	
 	# html5 video
@@ -53,7 +53,7 @@ on run argv
 	(*
 	tell application "VLC"
 		if it is running then
-			
+
 			if theKind is equal to "toggle" then
 				play
 				return
@@ -66,7 +66,7 @@ on run argv
 			end if
 		end if
 	end tell
-	
+
 *)
 	
 	tell application "iTunes"
@@ -107,7 +107,7 @@ on onSafari(theData)
 						return false
 					end if
 					
-					# We can not return the video tag so we convert it to a boolean 
+					# We can not return the video tag so we convert it to a boolean
 					set hasVideo to do JavaScript "!!document.getElementsByTagName('video')[0];" in theTab
 					if hasVideo then
 						set js to common of the theData
